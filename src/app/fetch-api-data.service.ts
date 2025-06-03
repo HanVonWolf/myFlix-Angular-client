@@ -22,7 +22,11 @@ export class FetchApiDataService {
     return JSON.parse(localStorage.getItem("user") || "");
   }
 
-  // Making the api call for the user registration endpoint
+ /**
+  * Registers a new user
+  * @param Request body has following user info: Username, Password, Email and Birthday
+  * @returns - A JSON object of user info
+  */
   public userRegistration(userDetails: any): Observable<any> {
 
     const data = {
@@ -43,7 +47,11 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
-  // User login endpoint
+  /**
+   * User can login
+   * @param request body contains userDetails - Username and Password 
+   * @returns A JSON object with user's data
+   */
   public userLogin(userDetails: any): Observable<any> {
     return this.http.post(apiUrl + 'login', userDetails).pipe(
       map(this.extractResponseData),
@@ -51,7 +59,10 @@ export class FetchApiDataService {
     );
   }
 
-  // Get all movies endpoint
+  /**
+   * Shows all movies
+   * @returns - JSON array of all movies in database 
+   */
   public getAllMovies(): Observable<any> {
     const token = this.getStoredToken();
     return this.http.get(apiUrl + 'movies', {
@@ -64,7 +75,12 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
-  // Get one movie
+
+  /**
+   * Show one movie by searching by title
+   * @param title - the title of searched for movie
+   * @returns - a JSON object with searched for movie info.
+   */
   public getMovie(title: string): Observable<any> {
     const token = this.getStoredToken();
     return this.http.get(apiUrl + 'movies/' + title, {
@@ -78,7 +94,11 @@ export class FetchApiDataService {
     );
   }
 
-  // Get director
+  /**
+   * Search for director by name
+   * @param directorName - the name of the director
+   * @returns - a JSON object with director's info
+   */
   public getDirector(name: string) {
     const token = this.getStoredToken();
     return this.http.get(apiUrl + 'movies/director/' + name, {
@@ -92,7 +112,11 @@ export class FetchApiDataService {
     );
   }
 
-  // Get genre
+  /**
+   * Search for a genre by name
+   * @param genreName - the name of the genre 
+   * @returns - a JSON object with genre info
+   */
   public getGenre(name: string) {
     const token = this.getStoredToken();
     return this.http.get(apiUrl + 'movies/genre/' + name, {
@@ -106,7 +130,10 @@ export class FetchApiDataService {
     );
   }
 
-  // Get all users
+  /**
+   * Shows all users
+   * @returns - JSON array of all movies in database 
+   */
   public getAllUses() {
     const token = this.getStoredToken();
     return this.http.get(apiUrl + 'users', {
@@ -120,7 +147,11 @@ export class FetchApiDataService {
     );
   }
 
-  // Add a movie to favourite Movies
+  /**
+   * add a movie to the user's favourite movies list
+   * @param movieId - the ID of the movie
+   * @returns - a JSON object of user's info
+   */
   public addUserFavoriteMovie(movieId: string) {
     const token = this.getStoredToken();
     let user = this.getStoredUser();
@@ -136,7 +167,11 @@ export class FetchApiDataService {
     );
   }
 
-  // Delete a movie from favourite Movies
+  /**
+   * Delete a movie from the favourite movie's list
+   * @param movieId - the ID of the movie
+   * @returns - a JSON object with user's info
+   */
   public deleteUserFavoriteMovie(movieId: string) {
     const token = this.getStoredToken();
     let user = this.getStoredUser();
@@ -152,7 +187,11 @@ export class FetchApiDataService {
     );
   }
 
-  // Edit user
+  /**
+   * Edit/update a user's info
+   * @param updatedUser - the updated user information (Username, Password, Email, Birthday)
+   * @returns - a JSON object with updated user's info
+   */
   public editUser(userDetails: any): Observable<any> {
     const token = this.getStoredToken();
     let user = this.getStoredUser();
@@ -168,7 +207,10 @@ export class FetchApiDataService {
     );
   }
 
-  // Delete user
+  /**
+   * Delete a user's account
+   * @returns - an alert message that the user's account was deleted
+   */
   public deleteUser(userDetails: any): Observable<any> {
     const token = this.getStoredToken();
     let user = this.getStoredUser();

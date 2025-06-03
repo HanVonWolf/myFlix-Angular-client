@@ -8,6 +8,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
+
+/**
+ * Shows the user info stored in database
+ * @user data of specific user
+ * @favorites an array of favorite movies from the user
+ * 
+ */
 export class UserProfileComponent implements OnInit {
 
   userData: any = {};
@@ -28,6 +35,9 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * the updatedUser object is stored in the database
+   */
   updateUser(): void {
     let user: any = {};
     user.userName = this.userData.userName;
