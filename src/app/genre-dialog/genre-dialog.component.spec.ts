@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DirectorComponent } from './director.component';
+import { GenreDialogComponent } from './genre-dialog.component';
 
-describe('DirectorComponent', () => {
-  let component: DirectorComponent;
-  let fixture: ComponentFixture<DirectorComponent>;
+describe('GenreDialogComponent', () => {
+  let component: GenreDialogComponent;
+  let fixture: ComponentFixture<GenreDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DirectorComponent]
+      declarations: [GenreDialogComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DirectorComponent);
+    fixture = TestBed.createComponent(GenreDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

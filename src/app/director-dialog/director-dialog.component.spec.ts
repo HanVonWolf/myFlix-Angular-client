@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovieViewComponent } from './movie-view.component';
+import { DirectorDialogComponent } from './director-dialog.component';
 
-describe('MovieViewComponent', () => {
-  let component: MovieViewComponent;
-  let fixture: ComponentFixture<MovieViewComponent>;
+describe('DirectorDialogComponent', () => {
+  let component: DirectorDialogComponent;
+  let fixture: ComponentFixture<DirectorDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MovieViewComponent]
+      declarations: [DirectorDialogComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MovieViewComponent);
+    fixture = TestBed.createComponent(DirectorDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
